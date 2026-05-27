@@ -207,10 +207,13 @@ export default function ContatoForm() {
           setStatus("idle");
         }, 3000);
       } else {
+        const errorData = await response.json().catch(() => ({}));
+        console.error("Formspree response:", errorData);
         setStatus("error");
         setTimeout(() => setStatus("idle"), 3000);
       }
-    } catch {
+    } catch (error) {
+      console.error("Formspree error:", error);
       setStatus("error");
       setTimeout(() => setStatus("idle"), 3000);
     }

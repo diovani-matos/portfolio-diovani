@@ -12,11 +12,6 @@ import type { NextConfig } from "next";
 //   https://www.google-analytics.com
 //   https://region1.google-analytics.com
 //
-// TODO — Formulário de contato: ao integrar Resend ou Formspree, incluir
-//   em connect-src a URL da API:
-//   Resend:    https://api.resend.com
-//   Formspree: https://formspree.io
-
 const securityHeaders = [
   {
     // Habilita pre-fetch de DNS para domínios externos linkados na página,
@@ -77,8 +72,8 @@ const securityHeaders = [
       // Imagens: próprio domínio + data URIs (grain SVG) + blobs.
       "img-src 'self' data: blob:",
 
-      // Conexões XHR/fetch/WebSocket: apenas próprio domínio.
-      "connect-src 'self'",
+      // Conexões XHR/fetch/WebSocket: próprio domínio + Formspree (formulário de contato).
+      "connect-src 'self' https://formspree.io",
 
       // Bloqueia completamente este site de ser embutido em iframes.
       // Reforça o X-Frame-Options acima.

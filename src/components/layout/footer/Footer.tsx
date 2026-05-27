@@ -106,10 +106,10 @@ export default function Footer() {
         <div className={styles.colRight}>
           <p className={styles.colTitle}>Contato</p>
           <a
-            href="mailto:contato@diovanimatos.com.br"
+            href="mailto:matosdiovani@gmail.com"
             className={styles.emailLink}
           >
-            contato@diovanimatos.com.br
+            matosdiovani@gmail.com
           </a>
 
           <ul className={styles.socialList}>

@@ -185,19 +185,34 @@ export default function ContatoForm() {
     setErros({});
 
     try {
-      // TODO: substituir por integração real de email
-      // Opções: Resend (resend.com) ou Formspree (formspree.io)
-      await new Promise<void>((resolve) => setTimeout(resolve, 2000));
+      const response = await fetch("https://formspree.io/f/mzdwydke", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          nome:      campos.nome,
+          email:     campos.email,
+          telefone:  campos.telefone,
+          servico:   campos.servico,
+          mensagem:  campos.mensagem,
+        }),
+      });
 
-      setStatus("success");
-
-      // Limpa formulário após 3s de feedback
-      setTimeout(() => {
-        setCampos(CAMPOS_INICIAIS);
-        setStatus("idle");
-      }, 3000);
+      if (response.ok) {
+        setStatus("success");
+        setTimeout(() => {
+          setCampos(CAMPOS_INICIAIS);
+          setStatus("idle");
+        }, 3000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 3000);
+      }
     } catch {
       setStatus("error");
+      setTimeout(() => setStatus("idle"), 3000);
     }
   }
 

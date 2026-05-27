@@ -92,19 +92,17 @@ export default function SobreHero() {
             termina com uma solução que funciona.
           </p>
 
-          {/* Destaques numéricos */}
+          {/* Destaques de diferenciais */}
           <div className={styles.highlights}>
             <div className={styles.highlightItem}>
-              <span className={styles.highlightNumber}>
-                2<span className={styles.highlightSuffix}>+</span>
-              </span>
-              <span className={styles.highlightLabel}>Projetos entregues</span>
+              <span className={styles.highlightIcon}>✦</span>
+              <span className={styles.highlightLabel}>Entrega no prazo</span>
+              <span className={styles.highlightSub}>Prazo definido antes de começar</span>
             </div>
             <div className={styles.highlightItem}>
-              <span className={styles.highlightNumber}>
-                100<span className={styles.highlightSuffix}>%</span>
-              </span>
-              <span className={styles.highlightLabel}>Taxa de satisfação</span>
+              <span className={styles.highlightIcon}>✦</span>
+              <span className={styles.highlightLabel}>SEO desde o início</span>
+              <span className={styles.highlightSub}>Performance e indexação integrados</span>
             </div>
           </div>
 

@@ -1,0 +1,182 @@
+.cta {
+  width: 100%;
+  padding: 10rem var(--container-padding);
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+/* ── Container interno ────────────────────────────────────────────────────── */
+
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+/* ── Elemento decorativo "DM" ─────────────────────────────────────────────── */
+/* transform: translateY(-50%) é o fallback pré-JS.                            */
+/* Após hidratação, GSAP assume via yPercent: -50 + anima translateX.          */
+
+.deco {
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(12rem, 30vw, 22rem);
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-border);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  opacity: 0.4;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* ── Tag de seção ─────────────────────────────────────────────────────────── */
+
+.tag {
+  position: relative;
+  z-index: 1;
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tagLine {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* ── Headline ─────────────────────────────────────────────────────────────── */
+
+.headline {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  font-weight: 700;
+  line-height: 0.95;
+  color: var(--color-text);
+}
+
+.headlineLine {
+  display: block;
+}
+
+.headlineAccent {
+  color: var(--color-accent);
+}
+
+/* ── Subtexto ─────────────────────────────────────────────────────────────── */
+
+.subtext {
+  position: relative;
+  z-index: 1;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  font-weight: 300;
+}
+
+/* ── Grupo de ações ───────────────────────────────────────────────────────── */
+
+.actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Botão WhatsApp — mesmo estilo do btnPrimary do Hero */
+
+.btnWhatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius);
+  letter-spacing: 0.05em;
+  transition: background var(--transition);
+}
+
+.btnWhatsapp:hover {
+  background: #B8EF00;
+}
+
+/* Link de e-mail */
+
+.emailLink {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.emailLink:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+/* ── Contexto ─────────────────────────────────────────────────────────────── */
+
+.context {
+  position: relative;
+  z-index: 1;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contextItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  color: var(--color-muted);
+}
+
+/* ── Mobile ───────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .deco {
+    font-size: clamp(8rem, 25vw, 12rem);
+    right: -1rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .btnWhatsapp {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,200 @@
+/* ── Header ──────────────────────────────────────────────────────────────────
+   Exceção documentada ao CLAUDE.md:
+   transition nas propriedades background-color e backdrop-filter é permitida
+   aqui pois é mudança de estado visual (não animação de entrada).
+   Todas as animações de entrada continuam usando GSAP.
+────────────────────────────────────────────────────────────────────────────── */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  z-index: var(--z-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--container-padding);
+  transition:
+    background-color 0.4s ease,
+    backdrop-filter  0.4s ease;
+}
+
+.scrolled {
+  background-color: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ── Logo ────────────────────────────────────────────────────────────────── */
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.logoAccent {
+  color: var(--color-accent);
+}
+
+/* ── Navegação desktop ───────────────────────────────────────────────────── */
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-muted);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color var(--transition);
+}
+
+.navLink:hover {
+  color: var(--color-accent);
+}
+
+/* Classe separada — aplicada via JS (pathname === href) */
+.navLinkActive {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Garante que hover não sobrescreva o estado ativo */
+.navLinkActive:hover {
+  color: var(--color-accent);
+}
+
+/* ── Toggle hamburger / fechar (mobile) ──────────────────────────────────── */
+
+.menuToggle {
+  /* Oculto no desktop; display: flex ativado em @media */
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+/* Cada traço do hamburger */
+.toggleLine {
+  position: absolute;
+  left: 50%;
+  width: 24px;
+  height: 1.5px;
+  background-color: var(--color-text);
+  transform-origin: center;
+  /* Exceção: transição de estado do botão, não animação de entrada */
+  transition:
+    transform 0.3s ease,
+    top       0.3s ease;
+}
+
+/* Estado fechado — dois traços paralelos */
+.toggleLine:first-child {
+  top: calc(50% - 5px);
+  transform: translateX(-50%);
+}
+
+.toggleLine:last-child {
+  top: calc(50% + 5px);
+  transform: translateX(-50%);
+}
+
+/* Estado aberto — dois traços cruzados formando X */
+.menuToggleClose .toggleLine:first-child {
+  top: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.menuToggleClose .toggleLine:last-child {
+  top: 50%;
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+/* ── Menu fullscreen mobile ──────────────────────────────────────────────── */
+
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  z-index: 99; /* header (z-index: 100) fica acima, exibindo logo + botão X */
+  background-color: var(--color-bg);
+  display: none;        /* oculto por padrão */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Classe adicionada via JS quando mobileOpen = true */
+.mobileMenuOpen {
+  display: flex;
+}
+
+.mobileNavList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobileNavLink {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  transition: color var(--transition);
+}
+
+.mobileNavLink:hover {
+  color: var(--color-accent);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .header {
+    height: 60px;
+  }
+
+  /* Oculta navegação desktop */
+  .nav {
+    display: none;
+  }
+
+  /* Exibe botão hamburger / fechar */
+  .menuToggle {
+    display: flex;
+  }
+}

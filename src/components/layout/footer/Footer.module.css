@@ -1,0 +1,177 @@
+/* ── Footer ───────────────────────────────────────────────────────────────────
+   Grid de duas linhas: .top (três colunas) + .bottom (copyright / crédito).
+   Nenhum valor de cor hardcoded — tudo via var().
+   Nenhum border-radius em qualquer elemento.
+────────────────────────────────────────────────────────────────────────────── */
+
+.footer {
+  width: 100%;
+  padding: 3rem var(--container-padding);
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+/* ── Linha superior ──────────────────────────────────────────────────────── */
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+/* ── Coluna esquerda — Logo + tagline ────────────────────────────────────── */
+
+.colLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.logoAccent {
+  color: var(--color-accent);
+}
+
+.tagline {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-top: 0.75rem;
+  line-height: var(--leading-normal);
+}
+
+/* ── Título de coluna — reutilizado em central e direita ─────────────────── */
+
+.colTitle {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  margin: 0 0 1rem;
+}
+
+/* ── Coluna central — Navegação ──────────────────────────────────────────── */
+
+.colCenter {
+  display: flex;
+  flex-direction: column;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.navLink:hover {
+  color: var(--color-accent);
+}
+
+/* ── Coluna direita — Contato ────────────────────────────────────────────── */
+
+.colRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.emailLink {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.emailLink:hover {
+  color: var(--color-accent);
+}
+
+/* ── Redes sociais ───────────────────────────────────────────────────────── */
+
+.socialList {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  transition: color var(--transition);
+}
+
+.socialLink:hover {
+  color: var(--color-accent);
+}
+
+/* Tamanho e display do SVG controlados via CSS — não via atributos width/height */
+.socialIcon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  /* stroke e fill usam currentColor → herdam a cor de .socialLink */
+}
+
+/* ── Linha inferior ──────────────────────────────────────────────────────── */
+
+.bottom {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.copyright {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  margin: 0;
+  line-height: var(--leading-normal);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .top {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .bottom {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+}

@@ -1,0 +1,124 @@
+/* ── Hero ─────────────────────────────────────────────────────────────────── */
+
+.hero {
+  width: 100%;
+  padding: 8rem var(--container-padding) 5rem;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.heroInner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Tag ──────────────────────────────────────────────────────────────────── */
+
+.tag {
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tagLine {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* ── Headline ─────────────────────────────────────────────────────────────── */
+
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 700;
+  line-height: 0.95;
+  color: var(--color-text);
+}
+
+.headlineAccent {
+  color: var(--color-accent);
+}
+
+/* ── Barra de filtros ─────────────────────────────────────────────────────── */
+/* Fica sticky logo abaixo do header fixo (72px desktop, 60px mobile)          */
+
+.filtrosWrapper {
+  width: 100%;
+  padding: 1.5rem var(--container-padding);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 72px;
+  z-index: 10;
+}
+
+.filtrosInner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.filtros {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* ── Botão de filtro ──────────────────────────────────────────────────────── */
+
+.filtroBtn {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1.25rem;
+  min-height: 44px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition:
+    border-color var(--transition),
+    color var(--transition),
+    background var(--transition);
+}
+
+.filtroBtn:hover {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+.filtroBtnAtivo {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.filtroBtnAtivo:hover {
+  background: #B8EF00;
+  border-color: #B8EF00;
+}
+
+/* ── Mobile ───────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .filtrosWrapper {
+    top: 60px;
+  }
+
+  .hero {
+    padding-bottom: 4rem;
+  }
+}

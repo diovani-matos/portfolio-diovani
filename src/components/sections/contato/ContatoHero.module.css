@@ -1,0 +1,167 @@
+/* ── Seção ────────────────────────────────────────────────────────────────── */
+
+.contatoHero {
+  width: 100%;
+  padding: 12rem var(--container-padding) 4rem;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ── Layout flex: esquerda vs direita ─────────────────────────────────────── */
+
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 4rem;
+}
+
+/* ══════════════════════════════════════════════
+   LADO ESQUERDO — Título
+══════════════════════════════════════════════ */
+
+/* ── Tag de seção ─────────────────────────────────────────────────────────── */
+
+.tag {
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tagLine {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* ── Título ───────────────────────────────────────────────────────────────── */
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  color: var(--color-text);
+  margin-top: 1.5rem;
+}
+
+.titleLine {
+  display: block;
+}
+
+.titleAccent {
+  color: var(--color-accent);
+}
+
+/* ══════════════════════════════════════════════
+   LADO DIREITO — Informações de contato
+══════════════════════════════════════════════ */
+
+.rightCol {
+  max-width: 320px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Itens de contato ─────────────────────────────────────────────────────── */
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.contactLabel {
+  font-size: 0.7rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+}
+
+.contactValue {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  transition: color 0.2s ease;
+  word-break: break-all;
+}
+
+a.contactValue:hover {
+  color: var(--color-accent);
+}
+
+/* ── Disponibilidade ──────────────────────────────────────────────────────── */
+
+.disponibilidade {
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Círculo de status verde — exceção ao border-radius (elemento utilitário) */
+.statusDot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+  flex-shrink: 0;
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.statusText {
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  color: var(--color-muted);
+}
+
+/* ── Mobile ───────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .contatoHero {
+    padding: 8rem var(--container-padding) 3rem;
+  }
+
+  .inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .rightCol {
+    max-width: 100%;
+    width: 100%;
+  }
+}

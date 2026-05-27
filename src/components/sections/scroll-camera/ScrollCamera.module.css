@@ -1,0 +1,248 @@
+/* ── Section ──────────────────────────────────────────────────────────────── */
+/* Sem height explícita — GSAP pin adiciona spacer de 200vh automaticamente,  */
+/* resultando em ~300vh de scroll total para esta seção.                       */
+
+.section {
+  width: 100%;
+  background: var(--color-bg);
+}
+
+/* ── Área sticky (pinned por GSAP no desktop) ─────────────────────────────── */
+
+.stickyArea {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 var(--container-padding);
+}
+
+/* ── Layout interno ───────────────────────────────────────────────────────── */
+
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* ── Coluna de texto ──────────────────────────────────────────────────────── */
+
+.tag {
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.tagLine {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  color: var(--color-text);
+}
+
+.titleLine {
+  display: block;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  max-width: 280px;
+  line-height: 1.6;
+  margin-top: 1.5rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-top: 2rem;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.link:hover {
+  color: var(--color-accent);
+}
+
+.linkArrow {
+  display: inline-block;
+}
+
+/* ── Coluna de cards ──────────────────────────────────────────────────────── */
+/* Sem display: flex — os cards são position: absolute e não participam        */
+/* do fluxo normal. A centralização do card 2 é feita via margin-left no CSS. */
+
+.cardsColumn {
+  position: relative;
+  width: 100%;
+  height: 480px;
+}
+
+/* ── Card base ────────────────────────────────────────────────────────────── */
+
+/* Quando o card tem URL — aplicado no <a> junto com .card */
+.cardClickable {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.card {
+  position: absolute;
+  width: 220px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  flex-shrink: 0;
+}
+
+/* Posicionamento fixo por card + z-index para sobreposição */
+
+.card:nth-child(1) {
+  left: 0;
+  z-index: 1;
+}
+
+.card:nth-child(2) {
+  left: 50%;
+  margin-left: -110px; /* metade de 220px — centraliza sem depender de GSAP */
+  z-index: 3;
+}
+
+.card:nth-child(3) {
+  right: 0;
+  z-index: 2;
+}
+
+/* ── Container da imagem ──────────────────────────────────────────────────── */
+/* position: relative necessário para next/image com fill                      */
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* ── Imagem do card ───────────────────────────────────────────────────────── */
+
+.cardImage {
+  object-fit: cover;
+}
+
+/* ── Placeholder (sem imagem) ─────────────────────────────────────────────── */
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+}
+
+/* ── Overlay de hover ─────────────────────────────────────────────────────── */
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.card:hover .cardOverlay {
+  opacity: 1;
+}
+
+.cardOverlayTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-text);
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* ── Mobile ───────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 6rem var(--container-padding);
+    overflow-x: hidden;
+  }
+
+  .stickyArea {
+    height: auto;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  /* Cards em coluna, sem posicionamento absoluto no mobile */
+  .cardsColumn {
+    position: static;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 240px;
+    margin: 0;
+    left: auto;
+    right: auto;
+  }
+
+  /* Sobrescreve nth-child com especificidade suficiente */
+  .card:nth-child(1),
+  .card:nth-child(3) {
+    left: auto;
+    right: auto;
+    z-index: auto;
+  }
+
+  .card:nth-child(2) {
+    left: auto;
+    margin-left: 0;
+    z-index: auto;
+  }
+}

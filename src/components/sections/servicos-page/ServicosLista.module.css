@@ -1,0 +1,204 @@
+/* ── Seção ────────────────────────────────────────────────────────────────── */
+
+.servicosLista {
+  width: 100%;
+  padding: 4rem var(--container-padding) 8rem;
+  background: var(--color-bg);
+}
+
+/* ── Container (gap 1px + bg border = separadores entre cards) ────────────── */
+
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--color-border);
+}
+
+/* ── Card ─────────────────────────────────────────────────────────────────── */
+
+.card {
+  background: var(--color-bg);
+  padding: 4rem 3rem;
+  display: grid;
+  grid-template-columns: 280px 1fr 200px;
+  gap: 4rem;
+  align-items: start;
+  transition: background var(--transition);
+}
+
+.card:hover {
+  background: var(--color-bg-card);
+}
+
+/* ══════════════════════════════════════════════
+   COLUNA ESQUERDA — Identificação
+══════════════════════════════════════════════ */
+
+.numero {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.titulo {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.1;
+}
+
+.prazo {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  border: 1px solid var(--color-border);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius);
+}
+
+/* ══════════════════════════════════════════════
+   COLUNA CENTRAL — Descrição
+══════════════════════════════════════════════ */
+
+.descricao {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.incluiTitle {
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.incluiLista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.incluiItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.bullet {
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════
+   COLUNA DIREITA — CTA
+══════════════════════════════════════════════ */
+
+.cardCta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.precoLabel {
+  font-size: 0.7rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.precoValor {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.btnCta {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  transition: background var(--transition);
+}
+
+.btnCta:hover {
+  background: #B8EF00;
+}
+
+/* ── Tablet ───────────────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .card {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  /* CTA vai para a 2ª linha, ocupando as 2 colunas */
+  .cardCta {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* ── Mobile ───────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .inner {
+    background: transparent;
+    gap: 1.5rem;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .cardCta {
+    grid-column: auto;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .btnCta {
+    width: 100%;
+    justify-content: center;
+  }
+}

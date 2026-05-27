@@ -1,0 +1,159 @@
+/* ── Container principal ──────────────────────────────────────────────────── */
+
+.container {
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 var(--container-padding);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── 404 decorativo ───────────────────────────────────────────────────────── */
+/*
+  Implementado como <span> real, não ::before.
+  GSAP não consegue animar pseudo-elementos — precisa de ref ao DOM.
+  CSS tem transform: translateY(-50%) como fallback pré-hidratação;
+  após mount, GSAP assume via yPercent: -50 e anima opacity + y float.
+*/
+
+.deco {
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(20rem, 40vw, 35rem);
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-border);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  opacity: 0.3;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ── Conteúdo — acima do deco ─────────────────────────────────────────────── */
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Tag de seção ─────────────────────────────────────────────────────────── */
+
+.tag {
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.tagLine {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* ── Título ───────────────────────────────────────────────────────────────── */
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+.titleLine {
+  display: block;
+}
+
+/* ── Subtexto ─────────────────────────────────────────────────────────────── */
+
+.subtext {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  font-weight: 300;
+  max-width: 400px;
+  margin-bottom: 3rem;
+}
+
+/* ── Grupo de ações ───────────────────────────────────────────────────────── */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* ── Botão primário ───────────────────────────────────────────────────────── */
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius);
+  letter-spacing: 0.05em;
+  transition: background var(--transition);
+}
+
+.btnPrimary:hover {
+  background: #B8EF00;
+}
+
+/* ── Link secundário ──────────────────────────────────────────────────────── */
+
+.linkSecondary {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  transition: color 0.2s ease;
+}
+
+.linkSecondary:hover {
+  color: var(--color-accent);
+}
+
+/* ── Mobile ───────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .deco {
+    font-size: clamp(12rem, 35vw, 20rem);
+    right: -1rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .btnPrimary {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}

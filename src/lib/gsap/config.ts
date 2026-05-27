@@ -9,7 +9,6 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, useGSAP);
 
 ScrollTrigger.defaults({
   markers: false,
-  ease: "power3.out",
 });
 
 export { gsap, ScrollTrigger, ScrollToPlugin };

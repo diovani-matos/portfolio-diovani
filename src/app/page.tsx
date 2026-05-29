@@ -35,9 +35,9 @@ export default function Home() {
         }}
         card3={{
           src: "/images/projects/projeto-3.jpg",
-          alt: "Projeto em breve",
-          title: "Em breve",
-          url: null,
+          alt: "Site para agência de marketing Nero Studio",
+          title: "Nero Studio",
+          url: "https://nero-studio.vercel.app",
         }}
       />
       <Numeros />

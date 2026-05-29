@@ -41,6 +41,18 @@ const projetos: Projeto[] = [
     url: "https://atelieterra.vercel.app/",
     destaque: true,
   },
+  {
+    id: 3,
+    titulo: "Nero Studio",
+    categoria: "Site Institucional",
+    descricao:
+      "Site institucional para agência de marketing digital com animações cinematográficas, GSAP, Lenis e design premium dark.",
+    src: "/images/projects/projeto-3.jpg",
+    alt: "Site para agência de marketing Nero Studio",
+    tags: ["Next.js", "GSAP", "CSS Modules"],
+    url: "https://nero-studio.vercel.app",
+    destaque: true,
+  },
 ];
 
 // ── Page ──────────────────────────────────────────────────────────────────────

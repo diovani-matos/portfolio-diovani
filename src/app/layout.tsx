@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, DM_Sans } from "next/font/google";
 import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";
 import LenisProvider from "@/lib/lenis/provider";
+import ScrollToTop from "@/components/ui/scroll-to-top/ScrollToTop";
 // Side-effect import: garante que os plugins GSAP (ScrollTrigger,
 // ScrollToPlugin, useGSAP) são registrados antes de qualquer componente
 // cliente ser hidratado. GSAP é SSR-safe e não acessa o DOM na importação.
@@ -160,6 +161,7 @@ export default function RootLayout({
       */}
       <body suppressHydrationWarning>
         <LenisProvider>
+          <ScrollToTop />
           {/* Header fixo por CSS (position: fixed em Header.module.css) */}
           <Header />
 

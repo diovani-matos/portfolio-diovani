@@ -32,7 +32,7 @@ export default function Footer() {
   const lenis    = useLenis();
 
   const handleNavClick = (href: string, e: React.MouseEvent) => {
-    if (href === "/" && pathname === "/" && lenis) {
+    if (pathname === href && lenis) {
       e.preventDefault();
       lenis.scrollTo(0, { duration: 1.5 });
     }

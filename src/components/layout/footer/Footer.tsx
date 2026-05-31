@@ -2,8 +2,10 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import { gsap, ScrollTrigger } from "@/lib/gsap/config";
+import { useLenis } from "@/lib/lenis/provider";
 import styles from "./Footer.module.css";
 
 // ── Dados ─────────────────────────────────────────────────────────────────────
@@ -25,6 +27,16 @@ export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const topRef    = useRef<HTMLDivElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  const pathname = usePathname();
+  const lenis    = useLenis();
+
+  const handleNavClick = (href: string, e: React.MouseEvent) => {
+    if (href === "/" && pathname === "/" && lenis) {
+      e.preventDefault();
+      lenis.scrollTo(0, { duration: 1.5 });
+    }
+  };
 
   // ── Animação de entrada via ScrollTrigger ─────────────────────────────────
   useGSAP(
@@ -94,7 +106,11 @@ export default function Footer() {
           <ul className={styles.navList}>
             {NAV_LINKS.map(({ label, href }) => (
               <li key={href}>
-                <Link href={href} className={styles.navLink}>
+                <Link
+                  href={href}
+                  className={styles.navLink}
+                  onClick={(e) => handleNavClick(href, e)}
+                >
                   {label}
                 </Link>
               </li>

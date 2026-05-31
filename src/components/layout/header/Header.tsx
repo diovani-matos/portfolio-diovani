@@ -128,6 +128,9 @@ export default function Header() {
     if (href.startsWith("#") && lenis) {
       e.preventDefault();
       lenis.scrollTo(href);
+    } else if (href === "/" && pathname === "/" && lenis) {
+      e.preventDefault();
+      lenis.scrollTo(0, { duration: 1.5 });
     }
   };
 

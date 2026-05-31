@@ -22,22 +22,22 @@ export default function Home() {
       <Servicos />
       <ScrollCamera
         card1={{
-          src: "/images/projects/projeto-1.jpg",
-          alt: "Landing page para nutricionista",
-          title: "Nutricionista",
-          url: "https://nutricionista-ivory.vercel.app/",
+          src: "/images/projects/projeto-4.jpg",
+          alt: "Landing page de produto premium Apex Ultra",
+          title: "Apex Ultra",
+          url: "https://apexultra.vercel.app",
         }}
         card2={{
-          src: "/images/projects/projeto-2.jpg",
-          alt: "E-commerce de produtos artesanais",
-          title: "Ateliê Terra",
-          url: "https://atelieterra.vercel.app/",
-        }}
-        card3={{
           src: "/images/projects/projeto-3.jpg",
           alt: "Site para agência de marketing Nero Studio",
           title: "Nero Studio",
           url: "https://nero-studio.vercel.app",
+        }}
+        card3={{
+          src: "/images/projects/projeto-2.jpg",
+          alt: "E-commerce de produtos artesanais",
+          title: "Ateliê Terra",
+          url: "https://atelieterra.vercel.app/",
         }}
       />
       <Numeros />

@@ -18,6 +18,18 @@ export const metadata: Metadata = {
 
 const projetos: Projeto[] = [
   {
+    id: 0,
+    titulo: "Apex Ultra",
+    categoria: "Landing Page",
+    descricao:
+      "Landing page premium para notebook ultrafino fictício. Animações cinematográficas com GSAP, ScrollCamera, contadores animados, scroll suave com Lenis e design dark de alto impacto.",
+    src: "/images/projects/projeto-4.jpg",
+    alt: "Landing page de produto premium Apex Ultra",
+    tags: ["Next.js", "GSAP", "CSS Modules", "Lenis"],
+    url: "https://apexultra.vercel.app",
+    destaque: true,
+  },
+  {
     id: 1,
     titulo: "Nutricionista",
     categoria: "Landing Page",

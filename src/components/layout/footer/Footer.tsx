@@ -132,7 +132,7 @@ export default function Footer() {
             {/* Instagram */}
             <li>
               <a
-                href="https://instagram.com/"
+                href="https://instagram.com/matosdiovani"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram de Diovani Matos — abre em nova aba"
@@ -168,7 +168,7 @@ export default function Footer() {
             {/* LinkedIn */}
             <li>
               <a
-                href="https://linkedin.com/in/"
+                href="https://linkedin.com/in/diovani-matos-333a2a228/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn de Diovani Matos — abre em nova aba"

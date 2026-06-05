@@ -45,7 +45,7 @@ const schema = {
   jobTitle: "Desenvolvedor Web",
   description:
     "Especialista em landing pages de alta conversão, sites institucionais e e-commerce.",
-  url: "https://diovanimatos.com.br",
+  url: "https://diovanimatos.vercel.app",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Criciúma",
@@ -81,14 +81,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Diovani Matos" }],
   creator: "Diovani Matos",
-  metadataBase: new URL("https://diovanimatos.com.br"),
+  metadataBase: new URL("https://diovanimatos.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://diovanimatos.com.br",
+    url: "https://diovanimatos.vercel.app",
     siteName: "Diovani Matos",
     title: "Diovani Matos — Desenvolvedor Web",
     description:

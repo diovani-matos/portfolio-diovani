@@ -1,7 +1,6 @@
 import { MetadataRoute } from "next";
 
-// TODO: substituir pela URL real após o domínio ser registrado
-const BASE_URL = "https://diovanimatos.com.br";
+const BASE_URL = "https://diovanimatos.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

@@ -57,7 +57,15 @@ const faqSchema = {
       name: "Tem suporte após a entrega?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sim. Ofereço suporte de 24 horas após a entrega para ajustes e correções. Para manutenção contínua, temos planos mensais disponíveis.",
+        text: "Sim. Ofereço suporte prioritário nas primeiras 24 horas após o lançamento para ajustes e correções. Para manutenção contínua, tenho planos mensais disponíveis.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quanto custa um projeto?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Cada projeto é orçado individualmente conforme escopo e prazo. O orçamento é gratuito e sem compromisso — basta entrar em contato.",
       },
     },
   ],
